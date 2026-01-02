@@ -1,0 +1,9 @@
+{
+  "outputStyle": "default",
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(ls:*)"
+    ]
+  }
+}

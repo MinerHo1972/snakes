@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人机对战贪吃蛇</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 主菜单 -->
+        <div id="main-menu" class="menu active">
+            <h1>🐍 人机对战贪吃蛇</h1>
+            <div class="menu-buttons">
+                <button class="btn" onclick="startGame('easy')">简单难度</button>
+                <button class="btn" onclick="startGame('medium')">中等难度</button>
+                <button class="btn" onclick="startGame('hard')">困难难度</button>
+            </div>
+            <div class="instructions">
+                <h3>游戏说明</h3>
+                <p>🎮 使用 <strong>方向键</strong> 或 <strong>WASD</strong> 控制绿色蛇</p>
+                <p>🤖 红色蛇由电脑控制</p>
+                <p>🍎 吃到食物得分并变长</p>
+                <p>💥 撞墙、撞自己或撞对手身体则失败</p>
+                <p>🏆 头对头碰撞时,较短的蛇获胜</p>
+            </div>
+        </div>
+
+        <!-- 游戏界面 -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <div class="score-panel">
+                    <div class="player-score">
+                        <span class="snake-indicator player"></span>
+                        玩家: <span id="player-score">0</span>
+                    </div>
+                    <div class="ai-score">
+                        <span class="snake-indicator ai"></span>
+                        电脑: <span id="ai-score">0</span>
+                    </div>
+                </div>
+                <div class="game-controls">
+                    <button class="btn-small" onclick="pauseGame()">暂停</button>
+                    <button class="btn-small" onclick="backToMenu()">返回菜单</button>
+                </div>
+            </div>
+            <canvas id="gameCanvas"></canvas>
+            <div class="game-info">
+                <span id="difficulty-display">难度: 简单</span>
+            </div>
+        </div>
+
+        <!-- 暂停菜单 -->
+        <div id="pause-menu" class="menu hidden">
+            <h2>游戏暂停</h2>
+            <div class="menu-buttons">
+                <button class="btn" onclick="resumeGame()">继续游戏</button>
+                <button class="btn" onclick="restartGame()">重新开始</button>
+                <button class="btn" onclick="backToMenu()">返回菜单</button>
+            </div>
+        </div>
+
+        <!-- 游戏结束 -->
+        <div id="game-over" class="menu hidden">
+            <h2 id="result-title">游戏结束</h2>
+            <p id="result-message" class="result-message"></p>
+            <div class="final-scores">
+                <div class="score-item">
+                    <span class="snake-indicator player"></span>
+                    玩家得分: <span id="final-player-score">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="snake-indicator ai"></span>
+                    电脑得分: <span id="final-ai-score">0</span>
+                </div>
+            </div>
+            <div class="menu-buttons">
+                <button class="btn" onclick="restartGame()">再来一局</button>
+                <button class="btn" onclick="backToMenu()">返回菜单</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/game/Snake.js"></script>
+    <script src="js/game/PlayerSnake.js"></script>
+    <script src="js/game/AISnake.js"></script>
+    <script src="js/game/Food.js"></script>
+    <script src="js/game/Collision.js"></script>
+    <script src="js/ai/EasyAI.js"></script>
+    <script src="js/ai/MediumAI.js"></script>
+    <script src="js/ai/HardAI.js"></script>
+    <script src="js/game/Game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
