@@ -32,8 +32,8 @@ class EasyAI {
             return aiSnake.direction;
         }
 
-        // 20%概率尝试朝食物移动
-        if (Math.random() < 0.2) {
+        // 30%概率尝试朝食物移动
+        if (Math.random() < 0.3) {
             const foodPos = food.getPosition();
             let bestMove = null;
             let bestDistance = Infinity;
